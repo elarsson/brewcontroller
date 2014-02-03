@@ -1,3 +1,9 @@
+# Script that outputs fake sensor data to stdout.
+# Separator between sensor outputs is semicolon, separator between sensor name and sensor value is colon, e.g.
+# Temp1:241.4;Temp2:13.041;Temp2:12.4;
+
+#TODO: read from stdin or something to simulate comms from pc to arduino
+
 import time
 import sys
 import select
@@ -16,7 +22,7 @@ class State:
 	ValveState3 = 0
 	
 def EncodeState(state):
-	return "T1:" + str(state.Temp1) + "&T2:" + str(state.Temp2) + ";"
+	return "T1:" + str(state.Temp1) + ";T2:" + str(state.Temp2) + ";"
 
 defState = State()
 T1d = 0.7
